@@ -1,8 +1,8 @@
 package event
 
 type scheduledEvent struct {
-	scheduledAt uint64
-	id          uint64
+	scheduledAt int
+	id          int
 	event       Event
 }
 

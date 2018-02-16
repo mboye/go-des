@@ -4,8 +4,9 @@ package event
 type NoopEvent struct {
 }
 
-// Execute executes a NoopEvent
-func (e NoopEvent) Execute() {
+// Name returns the name of the event
+func (e NoopEvent) Name() string {
+	return "No operation event"
 }
 
 // NewNoopEvent return a new NoopEvent

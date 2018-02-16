@@ -17,7 +17,7 @@ func TestHeapInitialLength(t *testing.T) {
 	}
 }
 
-func newScheduledEvent(at uint64, id uint64) scheduledEvent {
+func newScheduledEvent(at int, id int) scheduledEvent {
 	return scheduledEvent{
 		scheduledAt: at,
 		id:          id,

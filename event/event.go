@@ -2,7 +2,7 @@ package event
 
 // Event represents an event in a simulation
 type Event interface {
-	Execute()
+	Name() string
 }
 
 type event struct {
