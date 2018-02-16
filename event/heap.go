@@ -1,7 +1,7 @@
 package event
 
 // Heap is a heap of events
-type Heap []Event
+type Heap []scheduledEvent
 
 // Len returns the length of the heap
 func (h Heap) Len() int {
@@ -18,7 +18,7 @@ func (h Heap) Swap(i, j int) {
 
 // Push adds an item to the heap
 func (h *Heap) Push(x interface{}) {
-	*h = append(*h, x.(Event))
+	*h = append(*h, x.(scheduledEvent))
 }
 
 // Pop removes an item from the heap

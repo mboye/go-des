@@ -17,6 +17,13 @@ func TestHeapInitialLength(t *testing.T) {
 	}
 }
 
+func newScheduledEvent(at uint64, id uint64) scheduledEvent {
+	return scheduledEvent{
+		scheduledAt: at,
+		id:          id,
+		event:       NewNoopEvent()}
+}
+
 func TestHeapPushPop(t *testing.T) {
 
 	h := &Heap{}
@@ -26,10 +33,10 @@ func TestHeapPushPop(t *testing.T) {
 		0, h.Len(),
 		"Heap should be empty")
 
-	eventA := NewNoopEvent(100, 1)
-	eventB := NewNoopEvent(100, 2)
-	eventC := NewNoopEvent(1, 3)
-	eventD := NewNoopEvent(99, 4)
+	eventA := newScheduledEvent(100, 1)
+	eventB := newScheduledEvent(100, 2)
+	eventC := newScheduledEvent(10, 3)
+	eventD := newScheduledEvent(99, 4)
 
 	heap.Push(h, eventA)
 	heap.Push(h, eventB)

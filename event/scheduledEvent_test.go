@@ -7,8 +7,8 @@ import (
 )
 
 func TestLessComparesByIDWhenScheduledAtSameTime(t *testing.T) {
-	eventA := NewNoopEvent(100, 1)
-	eventB := NewNoopEvent(100, 2)
+	eventA := scheduledEvent{100, 1, nil}
+	eventB := scheduledEvent{100, 2, nil}
 
 	if Less(eventA, eventB) != true {
 		t.Errorf("Expected eventA to be less than eventB")
@@ -20,8 +20,8 @@ func TestLessComparesByIDWhenScheduledAtSameTime(t *testing.T) {
 }
 
 func TestLessComparesByScheduledAt(t *testing.T) {
-	eventA := NewNoopEvent(100, 1)
-	eventB := NewNoopEvent(101, 2)
+	eventA := scheduledEvent{100, 1, nil}
+	eventB := scheduledEvent{101, 2, nil}
 
 	if Less(eventA, eventB) != true {
 		t.Errorf("Expected eventA to be less than eventB")
@@ -33,8 +33,8 @@ func TestLessComparesByScheduledAt(t *testing.T) {
 }
 
 func TestLessPanicsWhenIDsEqual(t *testing.T) {
-	eventA := NewNoopEvent(100, 1)
-	eventB := NewNoopEvent(100, 1)
+	eventA := scheduledEvent{100, 1, nil}
+	eventB := scheduledEvent{100, 1, nil}
 
 	assert.Panics(
 		t,
